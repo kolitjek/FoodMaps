@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local ="clr-namespace:App1.Models"
+                   
+             x:Class="App1.View.MainPage">
+
+
+    <NavigationPage.TitleView>
+        <Grid>
+            <Label x:Name="HeaderTitle" Text="Home" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold"/>
+        </Grid>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Something1" Text="Something 1" Clicked="Something1_Clicked" Order="Secondary"/>
+        <ToolbarItem x:Name="Something2" Text="Something 2" Clicked="Something2_Clicked" Order="Secondary"/>
+        <ToolbarItem x:Name="LogOut" Text="Log out" Clicked="LogOut_Clicked" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid x:Name="MainGrid" RowSpacing="0" ColumnSpacing="0" Margin="0,0,0,0">
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.2*" x:Name="navbarColumnDef"/>
+
+        </Grid.ColumnDefinitions>
+
+        <StackLayout x:Name="NavigationBar" Grid.Row="0" Grid.Column="1" BackgroundColor="#EEEEEE">
+            <ImageButton x:Name="house"  Margin="0,5,0,5"  WidthRequest="60"  HeightRequest="60" CornerRadius="30"  Source="house.png"  Clicked="ImageButton_Clicked_House"/>
+            <ImageButton x:Name="list"   Margin="0,5,0,5"  WidthRequest="60"  HeightRequest="60" CornerRadius="30"  Source="list.png"   Clicked="ImageButton_Clicked_Lists" />
+            <ImageButton x:Name="bestik" Margin="0,5,0,5"  WidthRequest="60"  HeightRequest="60" CornerRadius="30"  Source="bestik.png" Clicked="ImageButton_Clicked_Dishes" />
+            <ImageButton x:Name="search" Margin="0,5,0,5"  WidthRequest="60"  HeightRequest="60" CornerRadius="30"  Source="search.png" Clicked="ImageButton_Clicked_SpeacialItems" />
+        </StackLayout>
+
+       
+        <Grid Grid.Row="0" Grid.Column="0" BackgroundColor="White" >
+            <ListView x:Name="listViewMainDishes" ItemsSource="{Binding Dishes}" IsVisible="false" RowHeight="200" ItemTapped="listViewMainDishes_ItemTapped">
+                <ListView.ItemTemplate  >
+                    <DataTemplate >
+                        <ViewCell >
+                            <Grid Margin="0,0,0,2" BackgroundColor="Black">
+                                <Image Grid.Column="0" Aspect="AspectFill" Grid.Row="0" Source="{Binding ImageUrl}"></Image>
+                                
+                                
+                                <Label x:Name="TransparentLabel" Grid.Column="0" Grid.Row="0" VerticalOptions="End" HorizontalOptions="FillAndExpand" HeightRequest="50" BackgroundColor="WhiteSmoke" Opacity="0.6"/>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="End" HeightRequest="50"  >
+                                    <Label Text="{Binding Topic}" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="Black" />
+                                    <Label Text="{Binding Price}" HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="End" TextColor="Black"  />
+                                    <Label VerticalTextAlignment="Center" Margin="0,0,20,0" TextColor="Black" Text=",-"/>
+
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView x:Name="listViewMainSpecialOffers" ItemsSource="{Binding SpecialOffers}" ItemTapped="listViewMainSpecialOffers_ItemTapped" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <Grid>
+                                
+                                <Label Grid.RowSpan="2" Grid.ColumnSpan="3" BackgroundColor="#d2f8d2">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding isOnSale}" Value="True">
+                                            <Setter Property="BackgroundColor" Value="#d2f8d2" />
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding isOnSale}" Value="False">
+                                            <Setter Property="BackgroundColor" Value="#FFFFFF" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+
+                                <Image Source="{Binding ImageUrl}" HeightRequest="100" WidthRequest="100" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Topic}" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <StackLayout  Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="{Binding Price}"/>
+                                    <Label Text=",-"/>
+                                </StackLayout>
+                                <Label Text="On Sale" Grid.Column="2" Grid.RowSpan="2" HorizontalOptions="Center"  IsVisible="false"/>
+                            </Grid>
+
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView x:Name="listViewMainLists" ItemsSource="{Binding Lists}" IsVisible="false" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding Topic}" HorizontalTextAlignment ="Center"  Grid.ColumnSpan="3" FontSize="Large" />
+                               
+                                <StackLayout Orientation="Horizontal" Grid.Row="1" >
+                                    <Label Text="Items: " />
+                                    <Label Text="{Binding itemCount}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+                                    <Label Text="{Binding Price} "/>
+                                    <Label Text=",-"/>
+                                </StackLayout>
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+
+        </Grid>
+
+        <Button x:Name="AddNewItemButton" Text="+"  WidthRequest="60"  HeightRequest="60" CornerRadius="30" Margin="0, 0, 20, 20" Grid.Row="0"   Grid.Column="0" VerticalOptions="End" HorizontalOptions="End" FontAttributes="Bold" BackgroundColor="#6d9eeb"></Button>
+
+        <ImageButton Source="menu.png"  x:Name="navButton"  WidthRequest="60"  HeightRequest="60" CornerRadius="30" Margin="0, 20, 20, 0" Grid.Row="0" Padding="10,10,10,10" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" BackgroundColor="#6d9eeb" Clicked="navButton_Clicked"></ImageButton>
+
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "hLeJu2N2351ioTw78MqRPkS2uJBVqThfoQNHJuejFLrKZGmviSYfipzi+E6H3h17XKMoiBK1WmUEPwRNOVLW8Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Anton\\Desktop\\FoodMaps\\FoodMaps-master\\App1\\App1.iOS\\App1.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Anton\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.5.0.495\\xamarin.forms.4.5.0.495.nupkg.sha512",
+    "C:\\Users\\Anton\\.nuget\\packages\\xamarin.forms.inputkit\\3.3.1\\xamarin.forms.inputkit.3.3.1.nupkg.sha512"
+  ],
+  "logs": []
+}
