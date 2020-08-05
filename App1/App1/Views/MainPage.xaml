@@ -28,10 +28,10 @@
         </Grid.ColumnDefinitions>
 
         <StackLayout x:Name="NavigationBar" Grid.Row="0" Grid.Column="1" BackgroundColor="#EEEEEE">
-            <ImageButton x:Name="house"  Margin="0,5,0,5"  WidthRequest="60"  HeightRequest="60" CornerRadius="30"  Source="house.png"  Clicked="ImageButton_Clicked_House"/>
-            <ImageButton x:Name="list"   Margin="0,5,0,5"  WidthRequest="60"  HeightRequest="60" CornerRadius="30"  Source="list.png"   Clicked="ImageButton_Clicked_Lists" />
-            <ImageButton x:Name="bestik" Margin="0,5,0,5"  WidthRequest="60"  HeightRequest="60" CornerRadius="30"  Source="bestik.png" Clicked="ImageButton_Clicked_Dishes" />
-            <ImageButton x:Name="search" Margin="0,5,0,5"  WidthRequest="60"  HeightRequest="60" CornerRadius="30"  Source="search.png" Clicked="ImageButton_Clicked_SpeacialItems" />
+            <ImageButton x:Name="house"    WidthRequest="60"  HeightRequest="60" CornerRadius="30" Margin="0,5,0,5"  HorizontalOptions="Center" BackgroundColor="White" Source="Home.png"  Clicked="ImageButton_Clicked_House"/>
+            <ImageButton x:Name="list"     WidthRequest="60"  HeightRequest="60" CornerRadius="30" Margin="0,5,0,5"  HorizontalOptions="Center" BackgroundColor="White" Source="List.png"   Clicked="ImageButton_Clicked_Lists" />
+            <ImageButton x:Name="bestik"   WidthRequest="60"  HeightRequest="60" CornerRadius="30" Margin="0,5,0,5"  HorizontalOptions="Center" BackgroundColor="White" Source="bestik.png" Clicked="ImageButton_Clicked_Dishes" />
+            <ImageButton x:Name="search"   WidthRequest="60"  HeightRequest="60" CornerRadius="50" Margin="0,5,0,5"  HorizontalOptions="Center" BackgroundColor="White" Source="Search.png" Clicked="ImageButton_Clicked_SpeacialItems" />
         </StackLayout>
 
        
@@ -117,9 +117,9 @@
 
         </Grid>
 
-        <Button x:Name="AddNewItemButton" Text="+"  WidthRequest="60"  HeightRequest="60" CornerRadius="30" Margin="0, 0, 20, 20" Grid.Row="0"   Grid.Column="0" VerticalOptions="End" HorizontalOptions="End" FontAttributes="Bold" BackgroundColor="#6d9eeb"></Button>
+        <ImageButton x:Name="AddNewItemButton" Source="AddList.png"   WidthRequest="60"  HeightRequest="60" CornerRadius="30" Margin="0, 0, 20, 20" Grid.Row="0" BorderWidth="1" BorderColor="Black"   Grid.Column="0" VerticalOptions="End" HorizontalOptions="End" BackgroundColor="White"></ImageButton>
 
-        <ImageButton Source="menu.png"  x:Name="navButton"  WidthRequest="60"  HeightRequest="60" CornerRadius="30" Margin="0, 20, 20, 0" Grid.Row="0" Padding="10,10,10,10" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" BackgroundColor="#6d9eeb" Clicked="navButton_Clicked"></ImageButton>
+        <ImageButton Source="menu.png"  x:Name="navButton"  WidthRequest="60"  HeightRequest="60" CornerRadius="30" Margin="0, 20, 20, 0" Grid.Row="0" Padding="10,10,10,10" BorderWidth="1" BorderColor="Black" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="End" BackgroundColor="White" Clicked="navButton_Clicked"></ImageButton>
 
 
     </Grid>

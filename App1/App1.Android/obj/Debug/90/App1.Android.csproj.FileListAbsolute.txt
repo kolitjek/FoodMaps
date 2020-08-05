@@ -533,7 +533,6 @@ C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\r
 C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\res\drawable\list.png
 C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\res\drawable\search.png
 C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\res\drawable\bestik.png
-C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\res\drawable\house.png
 C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\res\drawable\menu.png
 C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\uploadflags.txt
 C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\resolvedassemblies.hash
@@ -969,3 +968,7 @@ C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\a
 C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\android\src\crc64dbf290ea7e69bd26\EmptyEntryRenderer.java
 C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\android\src\crc64dbf290ea7e69bd26\NewIconViewRenderer.java
 C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\android\src\crc64dbf290ea7e69bd26\StatefulStackLayoutRenderer.java
+C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\res\drawable\addlist.png
+C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\res\drawable\home.png
+C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\res\drawable\tick.png
+C:\Users\Anton\Desktop\FoodMaps\FoodMaps-master\App1\App1.Android\obj\Debug\90\res\drawable\foodmaps.png

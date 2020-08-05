@@ -134,18 +134,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\list.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\search.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\bestik.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\house.png" />
+    <BundleResource Include="Resources\menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\menu.png" />
+    <BundleResource Include="Resources\AddList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\List.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Foodmaps.png" />
   </ItemGroup>
 </Project>

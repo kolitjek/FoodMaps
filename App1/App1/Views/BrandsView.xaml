@@ -29,7 +29,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-            <ImageButton Source="https://thumbs.dreamstime.com/b/green-check-mark-icon-tick-symbol-green-color-vector-illustration-green-check-mark-icon-tick-symbol-green-color-vector-137770439.jpg" x:Name="DoneButton"  WidthRequest="60"  HeightRequest="60" CornerRadius="30"  Grid.Row="0" Margin="0,0,0,10"   Grid.Column="0" VerticalOptions="End" HorizontalOptions="Center" BorderColor="Black" BorderWidth="2" BackgroundColor="#a2c4c9" Clicked="DoneButton_Clicked"></ImageButton>
+            <ImageButton Source="Tick.png" x:Name="DoneButton"  WidthRequest="60"  HeightRequest="60" CornerRadius="30"  Grid.Row="0" Margin="0,0,0,10" Grid.Column="0" VerticalOptions="End" HorizontalOptions="Center"  BorderWidth="1" BorderColor="Black" BackgroundColor="White" Clicked="DoneButton_Clicked"></ImageButton>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

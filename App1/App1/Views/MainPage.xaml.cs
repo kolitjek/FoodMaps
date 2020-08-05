@@ -32,14 +32,15 @@ namespace App1.View
         {
             InitializeComponent();
 
+
             GoToSpecialItemListCommand = new Command(() => Navigation.PushAsync(new SpecialOffersPage()));
             GoToNewListPageCommand = new Command(() => Navigation.PushAsync(new NewListPage()));
 
             BindingContext = dvm;
 
-            
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#2BED79");
 
-            AnimateButton(AddNewItemButton, 0, 120, 0);
+            AnimateImageButton(AddNewItemButton, 0, 120, 0);
             AnimateImageButton(navButton, 0, -120, 0);
 
 
@@ -55,7 +56,7 @@ namespace App1.View
             NavBarMinimize();
 
             //AnimatieNavBarOut();
-            AnimateButton(AddNewItemButton, 0, 120, 800);
+            AnimateImageButton(AddNewItemButton, 0, 120, 800);
 
         }
 
@@ -65,7 +66,7 @@ namespace App1.View
             NavBarMinimize();
 
             ChangeListView(listViewMainLists);
-            AnimateButton(AddNewItemButton, 0, 0, 800);
+            AnimateImageButton(AddNewItemButton, 0, 0, 800);
             BindingContext = lvm;
 
             AddNewItemButton.Command = GoToNewListPageCommand;
@@ -81,7 +82,7 @@ namespace App1.View
          
             NavBarMinimize();
             ChangeListView(listViewMainDishes);
-            AnimateButton(AddNewItemButton,0,120,800);
+            AnimateImageButton(AddNewItemButton,0,120,800);
             BindingContext = dvm;
 
 
@@ -92,7 +93,7 @@ namespace App1.View
             HeaderTitle.Text = "Offer Agent";
 
             AddNewItemButton.Command = GoToSpecialItemListCommand;
-            AnimateButton(AddNewItemButton, 0,0, 800);
+            AnimateImageButton(AddNewItemButton, 0,0, 800);
             BindingContext = sovm;
 
             NavBarMinimize();
