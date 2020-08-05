@@ -7,17 +7,20 @@ namespace App1.ViewModels
 {
     class ListViewModel
     {
-        public List<MyList> Lists { get; set;} 
+        public List<MyList> Lists { get; set;}
 
-
+        string[] backgroundColors = {"#77F4A9", "#99F7BF", "#BBF9D4", "#DDFCEA" }; 
 
         public ListViewModel()
         {
             Lists = new MyList().GetLists();
 
-            foreach (var item in Lists)
+            for (int i = 0; i < Lists.Count; i++)
             {
-                item.CalcItemCount();
+                MyList l = Lists[i];
+                l.CalcItemCount();
+                l.backgroundColor = backgroundColors[i %4];
+
             }
         }
     }

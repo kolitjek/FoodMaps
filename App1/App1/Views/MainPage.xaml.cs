@@ -28,10 +28,13 @@ namespace App1.View
 
         ListView currentListView = null;
 
+        Label currentPageIndicator;
+
         public MainPage()
         {
             InitializeComponent();
-
+         
+            currentPageIndicator = labelHouse;
 
             GoToSpecialItemListCommand = new Command(() => Navigation.PushAsync(new SpecialOffersPage()));
             GoToNewListPageCommand = new Command(() => Navigation.PushAsync(new NewListPage()));
@@ -41,7 +44,6 @@ namespace App1.View
             ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#2BED79");
 
             AnimateImageButton(AddNewItemButton, 0, 120, 0);
-            AnimateImageButton(navButton, 0, -120, 0);
 
 
 
@@ -50,12 +52,13 @@ namespace App1.View
         private void ImageButton_Clicked_House(object sender, EventArgs e)
         {
             HeaderTitle.Text = "Home";
-            //listViewMainDishes.ItemsSource = lvmm.offers;
-            ChangeListView(null);
 
+            ChangeListView(null);
             NavBarMinimize();
 
-            //AnimatieNavBarOut();
+            NewPageSelected(labelHouse);
+
+
             AnimateImageButton(AddNewItemButton, 0, 120, 800);
 
         }
@@ -68,6 +71,8 @@ namespace App1.View
             ChangeListView(listViewMainLists);
             AnimateImageButton(AddNewItemButton, 0, 0, 800);
             BindingContext = lvm;
+
+            NewPageSelected(labelList);
 
             AddNewItemButton.Command = GoToNewListPageCommand;
 
@@ -83,6 +88,8 @@ namespace App1.View
             NavBarMinimize();
             ChangeListView(listViewMainDishes);
             AnimateImageButton(AddNewItemButton,0,120,800);
+
+            NewPageSelected(labelBestik);
             BindingContext = dvm;
 
 
@@ -98,6 +105,8 @@ namespace App1.View
 
             NavBarMinimize();
 
+            NewPageSelected(labelSearch);
+
             ChangeListView(listViewMainSpecialOffers);
 
            
@@ -108,6 +117,7 @@ namespace App1.View
         private void navButton_Clicked(object sender, EventArgs e)
         {
             NavBarExpand();
+            ScaleImageButton(ImageButtonHeader, 0, 400, Easing.CubicIn);
         }
 
         private void Something1_Clicked(object sender, EventArgs e)
@@ -145,7 +155,7 @@ namespace App1.View
 
             Dish dish = e.Item as Dish;          
 
-            Navigation.PushAsync(new DishView(dish));
+            Navigation.PushAsync(new DishView(dish));          
 
             if (sender is ListView lv) lv.SelectedItem = null;
 
@@ -159,6 +169,19 @@ namespace App1.View
 
             if (sender is ListView lv) lv.SelectedItem = null;
         }
+
+
+        void NewPageSelected(Label newLabel)
+        {
+            Device.StartTimer(TimeSpan.FromMilliseconds(450), () =>
+            {
+            currentPageIndicator.BackgroundColor = Color.FromHex("#FFFFFF");
+            currentPageIndicator = newLabel;
+                currentPageIndicator.Scale = 0;
+            currentPageIndicator.BackgroundColor = Color.FromHex("#2BED79");
+                return false;
+            });
+        }
  /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                                                                         ANIMATION STUFF
   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -167,50 +190,49 @@ namespace App1.View
             house.ScaleTo(0, 400, easing: Easing.CubicOut);
             list.ScaleTo(0, 400, easing: Easing.CubicOut);
             bestik.ScaleTo(0, 400, easing: Easing.CubicOut);
-            search.ScaleTo(0, 400, easing: Easing.CubicOut);
-
+            search.ScaleTo(0, 400, easing: Easing.CubicOut);         
         }
 
+        void ScaleLabelAnimation(Label label, float scale, int speed, Easing easing)
+        {
+            label.ScaleTo(scale, (uint)speed, easing);
+        }
         void ScaleButtonsUpAnimation()
         {
-            house.ScaleTo(1, 400, easing: Easing.CubicInOut);
-                           
-            list.ScaleTo(1, 650, easing: Easing.CubicInOut);
-                   
-            bestik.ScaleTo(1, 900, easing: Easing.CubicInOut);
-                 
-            search.ScaleTo(1, 1050, easing: Easing.CubicInOut);
-               
+
+            ScaleImageButton(house, 1, 400, Easing.CubicInOut);
+            ScaleImageButton(list, 1, 650, Easing.CubicInOut);
+            ScaleImageButton(bestik, 1, 900, Easing.CubicInOut);
+            ScaleImageButton(search, 1, 1050, Easing.CubicInOut);          
+        }
+
+        void ScaleImageButton(ImageButton iButton, float scale, int speed, Easing easingFucntion)
+        {
+            iButton.ScaleTo(scale, (uint)speed, easingFucntion);
         }
 
 
         void NavBarMinimize()
         {
             ScaleButtonsDownAnimation();
+            ScaleLabelAnimation(currentPageIndicator, 0, 400, Easing.CubicIn);
 
             Device.StartTimer(TimeSpan.FromMilliseconds(400), () =>
             {
-                AnimateNavBarOut();              
-                AnimateImageButton(navButton, 0, 0, 1000);
+                AnimateNavBarOut();
+                ScaleImageButton(ImageButtonHeader, 1, 800, Easing.BounceOut);
                 return false;
             });
-
-
-
-
         }
 
 
         void NavBarExpand()
         {
-
-            AnimateImageButton(navButton, 0, -120, 500);
-
-            AnimateNavBarIn();
-
+            ScaleLabelAnimation(currentPageIndicator, 1, 400, Easing.CubicOut);
+            AnimateNavBarIn();            
         }
 
-
+        
 
 
         void AnimateButton(Button b, int x, int y, int speed)
@@ -270,7 +292,5 @@ namespace App1.View
 
 
         }
-
-
     }
 }

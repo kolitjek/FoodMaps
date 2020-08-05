@@ -157,4 +157,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\Foodmaps.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LogoHeader.PNG" />
+  </ItemGroup>
 </Project>
